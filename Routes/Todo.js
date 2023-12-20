@@ -6,7 +6,7 @@ import { validationResult } from "express-validator";
 
 
 // Create Todo
-router.post("/add-Todo", CreateTodo, async (req, res) => {
+router.post("/add-todo", CreateTodo, async (req, res) => {
     try {
         const err = validationResult(req);
         if (!err.isEmpty()) {
@@ -29,7 +29,7 @@ router.post("/add-Todo", CreateTodo, async (req, res) => {
 })
 
 // Get All Todo
-router.get("/get-all-Todo", async (req, res) => {
+router.get("/get-all-todo", async (req, res) => {
     try {
 
         const todo = await Todo.find({})
@@ -44,7 +44,7 @@ router.get("/get-all-Todo", async (req, res) => {
 })
 
 // Update Todo
-router.put("/update-Todo/:id", UpdateTodo, async (req, res) => {
+router.put("/update-todo/:id", UpdateTodo, async (req, res) => {
     try {
 
         const err =validationResult(req);
@@ -65,7 +65,7 @@ router.put("/update-Todo/:id", UpdateTodo, async (req, res) => {
 })
 
 // Delete Todo
-router.delete("/delete-Todo/:id", async (req, res) => {
+router.delete("/delete-todo/:id", async (req, res) => {
     try {
         const id = req.params.id
         const todo = await Todo.findByIdAndDelete(id)
